@@ -1,0 +1,38 @@
+{{define "body"}}
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>BrainWu</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/header.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/container.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/nav.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/about.css">
+    <script language="JavaScript" src="/static/js/nav.js">
+    </script>
+</head>
+<body>
+<div id="container">
+    {{template "header"}}
+    {{template "nav"}}
+    <div id="body">
+        <div id="body-content">
+            <div id="about">
+                <h1>关 于 我</h1>
+                <hr style="margin-top: 5px; margin-bottom: 5px;">
+                <p>
+                    <span>
+                        2013年5月，本人大三下，被生活所迫，下定决心，走上编程之路。
+                        Java是我第一门真正学习的语言，并不是JavaWeb而是Android开发。
+                        之后为了不被逐步的去学习Html Css Js SQL 以及JavaWeb的等形形色色的框架
+                        除了android每一门都是浅尝即止。
+                        恩 好吧 对于Android开发 不敢说精通 也还能算是熟悉 始终觉得Android开发平台太小遂准备转型后台开发
+                        刚开始接触了python 恩 不太喜欢  随后接触golang 大爱
+                    </span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+{{end}}

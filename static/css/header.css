@@ -1,0 +1,22 @@
+#header {
+    background-color: #3686be;
+}
+
+#header-content {
+    width: 1024px;
+    color: #ffffff;
+    height: 100px;
+    padding-top: 25px;
+    padding-left: 30px;
+}
+#header-content h1 {
+    font-size: 40px;
+    position: relative;
+}
+
+#header-content span {
+    display: block;
+    position: relative;
+    margin-top: 10px;
+    font-size: 15px;
+}

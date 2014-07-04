@@ -1,0 +1,20 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    font-size: 12px;
+}
+
+#container {
+    width: 100%;
+    overflow: visible;
+}
+
+#body {
+    background-color: bisque;
+    height: 100%;
+}
+
+#body-content {
+    background-color: bisque;
+    height: auto;
+}

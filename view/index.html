@@ -1,0 +1,48 @@
+{{define "body"}}
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="/static/css/home_page.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/header.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/nav.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/container.css">
+    <script language="JavaScript" src="/static/js/nav.js">
+    </script>
+    <title>Brain Wu</title>
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+</head>
+<body>
+<div id="container">
+    {{template "header"}}
+    {{template "nav"}}
+    <div id="body">
+        <div id="body-content">
+            {{range .Articles}}
+            <div class="article">
+                <p class="article-title">{{.Title}}</p>
+                <hr style="margin-top: 5px; margin-bottom: 5px;">
+                <div class="article-date-author">
+                    <ul>
+                        <li><span>日期: {{.Date}}</span></li>
+                        <li><span style="padding-left: 10px;">文章作者: {{.Author}}</span></li>
+                    </ul>
+                </div>
+                <div class="article-content">
+                    {{.Content}}
+                </div>
+            </div>
+            {{end}}
+            <div class="indexs">
+                <span onmouseover="this.style.cursor='hand'">上一页</span>
+                {{range .Indexs}}
+                <a href="{{.Link}}"><span>{{.Index}}</span></a>
+                {{end}}
+                <span onmouseover="this.style.cursor='hand'">下一页</span>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+{{end}}
