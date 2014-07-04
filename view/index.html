@@ -20,7 +20,7 @@
         <div id="body-content">
             {{range .Articles}}
             <div class="article">
-                <p class="article-title">{{.Title}}</p>
+                <a href="/article/{{.Uid}}" class="article-title" onmouseover="this.style.cursor='hand'">{{.Title}}</a>
                 <hr style="margin-top: 5px; margin-bottom: 5px;">
                 <div class="article-date-author">
                     <ul>

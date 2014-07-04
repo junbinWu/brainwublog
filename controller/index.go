@@ -63,3 +63,16 @@ func Index(ctx *web.Context) {
 
 func Favicon(ctx *web.Context) {
 }
+
+//mysql 生成uuid
+func Article(ctx *web.Context) {
+	var art *model.Article
+	p := ctx.Request.URL.Path
+	p = p[9:]
+	if i, err := strconv.Atoi(p); err != nil {
+		ctx.Redirect(302,"/index")
+	} else {
+		art = model.GetArticleByUid(i)
+	}
+	ctx.WriteString(string(art.Content))
+}

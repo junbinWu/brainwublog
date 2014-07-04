@@ -34,6 +34,12 @@ func Test_GetArticleCounts(t *testing.T) {
 	}
 }
 
+func Test_GetArticleByUid(t *testing.T) {
+	if art := GetArticleByUid(2); art == nil {
+		t.Fail()
+	}
+}
+
 //create table article (
 //uid int(10) not null auto_increment,
 //author varchar(64) default null,

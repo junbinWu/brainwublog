@@ -23,6 +23,7 @@ func main() {
 	web.AddRoute("/login", web.HandleFunc(controller.Login), "GET")
 	web.AddRoute("/login", web.HandleFunc(controller.Login), "POST")
 	web.AddRoute("/favicon.ico", web.HandleFunc(controller.Favicon), "GET")
+	web.AddRoute("/article/.*", web.HandleFunc(controller.Article), "GET")
 	web.AddRoute("/(.*)", web.HandleFunc(controller.Index), "GET")
 	web.Run(":8080", nil)
 }

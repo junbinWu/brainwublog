@@ -11,6 +11,7 @@ type Article struct {
 	Author  string
 	Title   string
 	Content template.HTML
+	Uid     string
 }
 
 var db *sql.DB
@@ -25,13 +26,28 @@ func init() {
 	}
 }
 
+func GetArticleByUid(u int) *Article {
+	row := db.QueryRow("select * from article where uid = ?", u)
+	var uid string
+	var author string
+	var date string
+	var title string
+	var content string
+	err := row.Scan(&uid, &author, &date, &title, &content)
+	if err != nil {
+		return nil
+	}
+	article := &Article{Author:author, Date:date, Title:title, Content:template.HTML(content), Uid:uid}
+	return article
+}
+
 func GetArticles(start int, limit int) []*Article {
 	var articles []*Article
 	//是否安全
 	rows, err := db.Query("select * from article limit ?,?", start, limit)
 	checkErr(err)
 	for rows.Next() {
-		var uid int
+		var uid string
 		var author string
 		var date string
 		var title string
@@ -41,7 +57,7 @@ func GetArticles(start int, limit int) []*Article {
 		if err != nil {
 			return nil
 		}
-		article := &Article{Author:author, Date:date, Title:title, Content:template.HTML(content)}
+		article := &Article{Author:author, Date:date, Title:title, Content:template.HTML(content), Uid:uid}
 		articles = append(articles, article)
 	}
 	return articles
