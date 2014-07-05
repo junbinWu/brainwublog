@@ -27,7 +27,7 @@ func init() {
 }
 
 func GetArticleByUid(u int) *Article {
-	row := db.QueryRow("select * from article where uid = ?", u)
+	row := db.QueryRow("select * from article where id = ?", u)
 	var uid string
 	var author string
 	var date string
@@ -93,9 +93,9 @@ func GetAllArticles() []*Article {
 }
 
 func SaveArticle(article Article) {
-	stmt, err := db.Prepare("insert article set author=?,date=?,title=?,content=?")
+	stmt, err := db.Prepare("insert article set author=?,title=?,content=?")
 	checkErr(err)
-	_, err = stmt.Exec(article.Author, article.Date, article.Title, string(article.Content))
+	_, err = stmt.Exec(article.Author, article.Title, string(article.Content))
 	checkErr(err)
 }
 

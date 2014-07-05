@@ -41,10 +41,10 @@ func Test_GetArticleByUid(t *testing.T) {
 }
 
 //create table article (
-//uid int(10) not null auto_increment,
+//id int not null auto_increment,
 //author varchar(64) default null,
-//date varchar(64) default null,
+//date timestamp ,
 //title varchar(64) default null,
 //content text,
-//primary key (uid)
+//primary key (id)
 //) CHARSET=utf8;

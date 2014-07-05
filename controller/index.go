@@ -64,7 +64,6 @@ func Index(ctx *web.Context) {
 func Favicon(ctx *web.Context) {
 }
 
-//mysql 生成uuid
 func Article(ctx *web.Context) {
 	var art *model.Article
 	p := ctx.Request.URL.Path
@@ -74,5 +73,10 @@ func Article(ctx *web.Context) {
 	} else {
 		art = model.GetArticleByUid(i)
 	}
-	ctx.WriteString(string(art.Content))
+	if art == nil {
+		ctx.WriteString(string("Not Found Article"))
+	} else {
+		ctx.WriteString(string(art.Content))
+	}
+
 }

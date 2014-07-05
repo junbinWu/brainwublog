@@ -50,9 +50,7 @@ func Admin(ctx *web.Context) {
 func Editor(ctx *web.Context) {
 	var editTv string = ctx.Params["editor1"]
 	var editTitle string = ctx.Params["title"]
-	var editTime string = time.Now().String()[0:19]
 	article := model.Article{
-		Date : editTime,
 		Author : "BrainWu",
 		Title  :editTitle,
 		Content : template.HTML(editTv),
